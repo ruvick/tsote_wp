@@ -94,7 +94,68 @@ function add_tocart(elem, countElem) {
 }
 //------------------------------------------------------------------------------------------------------------
 
-//BodyLock для Popup на JS
+const iconMenu = document.querySelector(".icon-menu");
+const body = document.querySelector("body");
+const menuBody = document.querySelector(".mob-menu");
+const menuListItemElems = document.querySelector(".mob-menu__list");
+const mobsearch = document.querySelector(".mob-search");
+const headsearch = document.querySelector(".header__search");
+
+//BURGER
+if (iconMenu) {
+	iconMenu.addEventListener("click", function () {
+		iconMenu.classList.toggle("active");
+		body.classList.toggle("lock");
+		menuBody.classList.toggle("active");
+	});
+}
+
+// Закрытие моб меню при клике на якорную ссылку
+if (menuListItemElems) {
+	menuListItemElems.addEventListener("click", function () {
+		iconMenu.classList.toggle("active");
+		body.classList.toggle("lock");
+		menuBody.classList.toggle("active");
+	});
+}
+
+// Строка поиска на мобилках 
+if (mobsearch) {
+	mobsearch.addEventListener("click", function () {
+		headsearch.classList.toggle("active");
+	});
+}
+
+// Закрытие моб меню при клике вне области меню 
+window.addEventListener('click', e => { // при клике в любом месте окна браузера
+	const target = e.target // находим элемент, на котором был клик
+	if (!target.closest('.icon-menu') && !target.closest('.mob-menu') && !target.closest('.mob-search') && !target.closest('.header__search') && !target.closest('._popup-link') && !target.closest('.popup')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+		iconMenu.classList.remove('active') // то закрываем окно навигации, удаляя активный класс
+		menuBody.classList.remove('active')
+		body.classList.remove('lock')
+		headsearch.classList.remove('active')
+	}
+})
+
+// Плавная прокрутка
+const smotScrollElems = document.querySelectorAll('a[href^="#"]:not(a[href="#"])');
+
+smotScrollElems.forEach(link => {
+	link.addEventListener('click', (event) => {
+		event.preventDefault()
+		console.log(event);
+
+		const id = link.getAttribute('href').substring(1)
+		console.log('id : ', id);
+
+		document.getElementById(id).scrollIntoView({
+			behavior: 'smooth'
+		});
+	})
+});
+
+
+// BodyLock для Popup на JS
 function body_lock(delay) {
 	let body = document.querySelector("body");
 	if (body.classList.contains('lock')) {
@@ -224,6 +285,48 @@ document.addEventListener('keydown', function (e) {
 $ = jQuery;
 
 // Файлы jQuery---------------------------------------------------------------------------------------------------------------
+// // Slider на главной
+$('.slider').slick({
+	arrows: false,
+	dots: true,
+	infinite: true,
+	speed: 1000,
+	slidesToShow: 1,
+	autoplay: true,
+	autoplaySpeed: 1800,
+	adaptiveHeight: true
+});
+
+
+$('.clients__slider').slick({
+	arrows: true,
+	dots: false,
+	infinite: true,
+	speed: 1000,
+	slidesToShow: 5,
+	autoplay: true,
+	autoplaySpeed: 1800,
+	adaptiveHeight: true,
+	responsive: [
+		{
+			breakpoint: 812,
+			settings: {
+				slidesToShow: 4,
+			}
+		}, {
+			breakpoint: 612,
+			settings: {
+				slidesToShow: 3,
+			}
+		}, {
+			breakpoint: 480,
+			settings: {
+				slidesToShow: 2,
+			}
+		}
+	]
+});
+
 
 // Открытие модального окна
 $(".popup-quest").on('click', function (e) {
