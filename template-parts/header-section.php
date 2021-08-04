@@ -16,20 +16,16 @@
 
         <div class="header__menu menu">
           <nav class="menu__body">
-            <ul class="menu__list sibling-fade d-flex">
-              <li><a href="#" class="menu__link">Главная</a></li>
-              <li><a href="#" class="menu__link">Услуги в сфере экологической безопасности</a></li>
-              <li><a href="#" class="menu__link">Услуги в сфере охраны труда</a></li>
-              <li><a href="#" class="menu__link">Контакты</a></li>
-            </ul>
+            <?php wp_nav_menu(array(
+              'theme_location' => 'menu_main', 'menu_class' => 'menu__list',
+              'container_class' => 'menu__list', 'container' => false
+            )); ?>
           </nav>
           <nav class="mob-menu">
-            <ul class="mob-menu__list">
-              <li><a href="#" class="menu__link">Главная</a></li>
-              <li><a href="#" class="menu__link">Услуги в сфере экологической безопасности</a></li>
-              <li><a href="#" class="menu__link">Услуги в сфере охраны труда</a></li>
-              <li><a href="#" class="menu__link">Контакты</a></li>
-            </ul>
+            <?php wp_nav_menu(array(
+              'theme_location' => 'menu_main', 'menu_class' => 'mob-menu__list',
+              'container_class' => 'mob-menu__list', 'container' => false
+            )); ?>
           </nav>
         </div>
 

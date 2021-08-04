@@ -5,12 +5,10 @@
 
       <a href="#" class="footer__logo logo-icon"></a>
 
-      <ul class="footer__menu">
-        <li><a href="#" class="menu__link">Главная</a></li>
-        <li><a href="#" class="menu__link">Услуги в сфере экологической безопасности</a></li>
-        <li><a href="#" class="menu__link">Услуги в сфере охраны труда</a></li>
-        <li><a href="#" class="menu__link">Контакты</a></li>
-      </ul>
+      <?php wp_nav_menu(array(
+        'theme_location' => 'menu_main', 'menu_class' => 'footer__menu',
+        'container_class' => 'footer__menu', 'container' => false
+      )); ?>
 
       <div class="footer__contact d-flex">
         <a href="tel:88004882222" class="header__phone">8 800 488 22 22</a>

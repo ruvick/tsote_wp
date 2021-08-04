@@ -18,7 +18,7 @@ function crb_attach_theme_options() {
 add_action( 'after_setup_theme', 'crb_load' );
 function crb_load() {
 	require_once( 'carbon-fields/vendor/autoload.php' );
-	\Carbon_Fields\Carbon_Fields::boot();
+	\Carbon_Fields\Carbon_Fields::boot(); 
 } 
 
 //-----Блок описания вывода меню
@@ -29,10 +29,10 @@ function crb_load() {
 
 add_action( 'after_setup_theme', function(){
 	register_nav_menus( [
-		'menu_hot' => 'Меню актуальных предложений (рядом с каталогом)',
-		'menu_cat' => 'Меню каталога', 
+		// 'menu_hot' => 'Меню актуальных предложений (рядом с каталогом)',
+		// 'menu_cat' => 'Меню каталога', 
 		'menu_main' => 'Меню основное',
-		'menu_corp' => 'Общекорпоративное меню (верхняя шапка)', 
+		// 'menu_corp' => 'Общекорпоративное меню (верхняя шапка)', 
 	] );
 } ); 
 
@@ -502,8 +502,3 @@ function send_cart() {
 		wp_die( 'НО-НО-НО!', '', 403 );
 	}
 }
-
-
-	
-
-?>

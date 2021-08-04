@@ -1009,6 +1009,7 @@ body.ie .ibg img {
   justify-content: space-between; }
 
 .menu__list {
+  display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-box-pack: end;
