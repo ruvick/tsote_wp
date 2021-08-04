@@ -1422,7 +1422,7 @@ body.ie .ibg img {
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../img/header-bg.jpg"); }
+  background-image: url("img/header-bg.jpg"); }
 
 /* Точки (булиты) */
 .slider .slick-dots {
