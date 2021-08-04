@@ -13,25 +13,17 @@ use Carbon_Fields\Field;
 
 Container::make('theme_options', __('Настройки темы', 'crb'))
   ->add_tab('Главная', array(
-    // Field::make( 'image', 'as_logo', 'Логотип в шапке')
-    //   ->set_width(30),
-    // Field::make( 'image', 'as_logo_white', 'Логотип в подвале')
-    //   ->set_width(30),
-    Field::make('text', 'about_home_title', 'Заголовок на главной'),
     Field::make('rich_text', 'about_home', 'О нашей компании')
   ))
-  ->add_tab('Акции', array(
-    Field::make('complex', 'complex_promo', 'Верхние блоки на главной')
-      // ->set_max(3) // Можно будет выбрать только 5 постов
+  ->add_tab('Слайдер', array(
+    Field::make('complex', 'slider_index', 'Слайдер на главной')
       ->add_fields(array(
-        Field::make('image', 'img_promo', 'Фото')
-          ->set_width(30),
-        Field::make('text', 'text_promo', 'Текст')
-          ->set_width(30),
-        Field::make('text', 'sticker_promo', 'Стикер')
-          ->set_width(30),
-        Field::make('text', 'link_promo', 'Ссылка')
-          ->set_width(30),
+        Field::make('image', 'slider_img', 'Картинка слайдера')
+          ->set_width(50),
+        Field::make('text', 'slider_title', 'Заголовок слайдера')
+          ->set_width(50),
+        Field::make('text', 'slider_subtitle', 'Подзаголовок слайдера')
+          ->set_width(50),
       ))
   ))
   ->add_tab('Контакты', array(

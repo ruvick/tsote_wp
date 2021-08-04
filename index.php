@@ -5,51 +5,28 @@
 <main class="page">
 
 	<section id="slider" class="slider">
-		<div class="slider__item">
-			<div class="container">
-				<div class="slider__text">
-					<h1>Специальная оценка
-						условий труда (СОУТ)
-					</h1>
-					<p>
-						Наша лаборатория осуществляет деятельность
-						по специальной оценке условий труда
-						в соответствие с ГОСТ ISO/IEC 17025-2019
-					</p>
-					<div class="slider__text-color"></div>
+		<?
+		$pict = carbon_get_theme_option('slider_index');
+		if ($pict) {
+			$pictIndex = 0;
+			foreach ($pict as $item) {
+		?>
+				<div class="slider__item" style="background-image: url(<?php echo wp_get_attachment_image_src($item['slider_img'], 'full')[0]; ?>);">
+					<div class="container">
+						<? if (!empty($item['slider_title'])) { ?>
+							<div class="slider__text">
+								<h1><? echo $item['slider_title']; ?></h1>
+								<p><? echo $item['slider_subtitle']; ?></p>
+								<div class="slider__text-color"></div>
+							</div>
+						<? } ?>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="slider__item">
-			<div class="container">
-				<div class="slider__text">
-					<h1>Специальная оценка
-						условий труда (СОУТ)
-					</h1>
-					<p>
-						Наша лаборатория осуществляет деятельность
-						по специальной оценке условий труда
-						в соответствие с ГОСТ ISO/IEC 17025-2019
-					</p>
-					<div class="slider__text-color"></div>
-				</div>
-			</div>
-		</div>
-		<div class="slider__item">
-			<div class="container">
-				<div class="slider__text">
-					<h1>Специальная оценка
-						условий труда (СОУТ)
-					</h1>
-					<p>
-						Наша лаборатория осуществляет деятельность
-						по специальной оценке условий труда
-						в соответствие с ГОСТ ISO/IEC 17025-2019
-					</p>
-					<div class="slider__text-color"></div>
-				</div>
-			</div>
-		</div>
+		<?
+				$pictIndex++;
+			}
+		}
+		?>
 	</section>
 
 	<? $about = carbon_get_theme_option("about_home");
