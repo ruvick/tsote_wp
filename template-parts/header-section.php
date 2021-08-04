@@ -8,10 +8,13 @@
       <div class="header__nav-block">
 
         <div class="header__contact d-flex">
-          <a href="mailto:info@tsot-kursk.ru" class="header__email">info@tsot-kursk.ru</a>
-          <a href="tel:88004882222" class="header__phone">8 800 488 22 22</a>
+          <? $mail = carbon_get_theme_option("as_email");
+          if (!empty($mail)) { ?><a href="mailto:<? echo $mail; ?>" class="header__email"><? echo $mail; ?></a><? } ?>
+          <? $tel = carbon_get_theme_option("as_phones_1");
+          if (!empty($tel)) { ?><a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="header__phone"><? echo $tel; ?></a><? } ?>
           <a href="#callback" class="header__popup-link btn _popup-link">ЗАКАЗАТЬ ЗВОНОК</a>
-          <a href="tel:88004882222" class="mob-callback__phone"></a>
+          <? $tel = carbon_get_theme_option("as_phones_1");
+          if (!empty($tel)) { ?><a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="mob-callback__phone"></a><? } ?>
         </div>
 
         <div class="header__menu menu">
