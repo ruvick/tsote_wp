@@ -3,7 +3,7 @@
 
     <div class="header__row d-flex">
 
-      <a href="#" class="header__logo logo-icon"></a>
+      <a href="http://xn----ttbanmgdkw.xn--p1ai" class="header__logo logo-icon"></a>
 
       <div class="header__nav-block">
 

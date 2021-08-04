@@ -3,7 +3,7 @@
 
     <div class="footer__row d-flex">
 
-      <a href="#" class="footer__logo logo-icon"></a>
+      <a href="http://xn----ttbanmgdkw.xn--p1ai" class="footer__logo logo-icon"></a>
 
       <?php wp_nav_menu(array(
         'theme_location' => 'menu_main', 'menu_class' => 'footer__menu',
