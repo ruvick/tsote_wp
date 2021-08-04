@@ -13,7 +13,7 @@
       }
       ?>
 
-      <h1>Проект санитарно-защитной зоны (СЗЗ)</h1>
+      <h1><?php the_title(); ?></h1>
 
       <div class="info__card-block d-flex">
 
@@ -52,7 +52,8 @@
         </div>
 
         <div class="info__card-block-img">
-          <img src="img/category/01.jpg" alt="">
+          <img src="<?php $imgTm = get_the_post_thumbnail_url(get_the_ID(), "tominiatyre");
+                    echo empty($imgTm) ? get_bloginfo("template_url") . "/img/no-photo.jpg" : $imgTm; ?>" alt="">
         </div>
 
       </div>
