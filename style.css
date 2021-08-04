@@ -3,7 +3,7 @@ Theme Name: tsote
 Theme URI: 
 Author: ruvick
 Author URI: 
-Version: 1.0.1  
+Version: 1.0.1     
 */ 
 
 
@@ -818,7 +818,9 @@ body.ie .ibg img {
 .tab__item {
   display: none; }
   .tab__item.active {
-    display: block; }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
 
 .mirror {
   -webkit-transform: scale(-1, 1);
@@ -1952,6 +1954,7 @@ body.ie .ibg img {
 
 
 
+
 /* Оформление корзины */ 
 .bascet_page_table {
   width: 100%;
@@ -2076,7 +2079,7 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
 -webkit-filter: grayscale(100%); }*/
 
 /*Убираем лишние элементы с карты*/
-.ymaps-2-1-77-gotoymaps__container, 
+.ymaps-2-1-77-gotoymaps__container,  
 .ymaps-2-1-77-gototech, 
 .ymaps-2-1-77-copyright__content,
 .ymaps-2-1-78-copyright__wrap,
