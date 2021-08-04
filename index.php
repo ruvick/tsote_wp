@@ -52,18 +52,15 @@
 		</div>
 	</section>
 
-	<section id="about" class="about">
-		<div class="container">
-			<h2>О нашей компании</h2>
-			<p>
-				Наша компания оказывает услуги по специальной оценке условий труда на предприятиях любого типа мы имеем все
-				необходимые сертификаты и
-				разрешения на проведение специальной оценки. География нашей работы не ограничивается территорией Курской
-				области, наши специалисты проведут
-				выездную экспертизу в любом городе на всей территории РФ.
-			</p>
-		</div>
-	</section>
+	<? $about = carbon_get_theme_option("about_home");
+	if (!empty($about)) { ?>
+		<section id="about" class="about">
+			<div class="container">
+				<h2>О нашей компании</h2>
+				<p><? echo $about; ?></p>
+			</div>
+		</section>
+	<? } ?>
 
 	<section id="services" class="services">
 		<div class="container">
