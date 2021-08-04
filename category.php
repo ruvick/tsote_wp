@@ -31,47 +31,12 @@
     <div class="container">
       <h2>Смотрите также</h2>
       <div class="services__row d-flex">
-
-        <div class="card__body d-flex">
-          <div class="card__img">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/services/01.jpg" alt="">
-          </div>
-          <div class="card__desc">
-            <h4>
-              Специальная оценка
-              условий труда (СОУТ)
-            </h4>
-            <a href="#" class="card__link">ПОДРОБНЕЕ</a>
-          </div>
-        </div>
-
-        <div class="card__body d-flex">
-          <div class="card__img">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/services/02.jpg" alt="">
-          </div>
-          <div class="card__desc">
-            <h4>
-              Оценка
-              профессиональных
-              рисков
-            </h4>
-            <a href="#" class="card__link">ПОДРОБНЕЕ</a>
-          </div>
-        </div>
-
-        <div class="card__body d-flex">
-          <div class="card__img">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/services/03.jpg" alt="">
-          </div>
-          <div class="card__desc">
-            <h4>
-              Проект предельно
-              допустимых выбросов
-              (ПДВ)
-            </h4>
-            <a href="#" class="card__link">ПОДРОБНЕЕ</a>
-          </div>
-        </div>
+        <?php
+        global $query_string;
+        query_posts($query_string . '&order=ASC&posts_per_page=3');
+        get_template_part('template-parts/product-elem');
+        wp_reset_query();
+        ?>
       </div>
     </div>
   </section>
