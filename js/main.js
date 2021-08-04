@@ -285,6 +285,12 @@ document.addEventListener('keydown', function (e) {
 $ = jQuery;
 
 // Файлы jQuery---------------------------------------------------------------------------------------------------------------
+
+// Маска телефона
+var inputmask_phone = { "mask": "+9(999)999-99-99" };
+jQuery("input[type=tel]").inputmask(inputmask_phone);
+
+
 // // Slider на главной
 $('.slider').slick({
 	arrows: false,
@@ -342,15 +348,6 @@ $('body').on('click', '.tab__navitem', function (event) {
 			$(this).closest('.tabs').find('.slick-slider').slick('setPosition');
 		}
 	}
-});
-
-
-// Открытие модального окна
-$(".popup-quest").on('click', function (e) {
-	e.preventDefault();
-	jQuery(".windows_form h2").html(jQuery(this).data("winheader"));
-	jQuery(".windows_form .subtitle").html(jQuery(this).data("winsubheader"));
-	jQuery("#question").arcticmodal();
 });
 
 
