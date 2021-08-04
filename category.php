@@ -34,7 +34,10 @@
         <?php
         global $query_string;
         query_posts($query_string . '&order=ASC&posts_per_page=3');
-        get_template_part('template-parts/product-elem');
+        while (have_posts()) :
+          the_post();
+          get_template_part('template-parts/product-elem');
+        endwhile;
         wp_reset_query();
         ?>
       </div>

@@ -55,9 +55,9 @@
 						<?php
 						$posts = get_posts(array(
 							'numberposts' => -1,
-							'category'    => 3,
+							'category'    => 4,
 							'orderby'     => 'date',
-							'order'       => 'DESC',
+							'order'       => 'ASC',
 							'include'     => array(),
 							'exclude'     => array(),
 							'meta_key'    => '',
@@ -80,9 +80,9 @@
 						<?php
 						$posts = get_posts(array(
 							'numberposts' => -1,
-							'category'    => 4,
+							'category'    => 3,
 							'orderby'     => 'date',
-							'order'       => 'DESC',
+							'order'       => 'ASC',
 							'include'     => array(),
 							'exclude'     => array(),
 							'meta_key'    => '',
