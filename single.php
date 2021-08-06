@@ -4,7 +4,7 @@
 
 <main class="page">
 
-  <section class="category info">
+  <section class="category info content">
     <div class="container">
 
       <?php
@@ -18,26 +18,35 @@
       <div class="info__card-block d-flex">
 
         <div class="info__card-block-desc">
-          <? echo carbon_get_post_meta(get_the_ID(), "single_smile_descr"); ?>
+          <p><? echo carbon_get_post_meta(get_the_ID(), "single_smile_descr"); ?></p>
           <div class="info__charact">
 
-            <div class="info__charact-row d-flex">
-              <div class="info__charact-name charact-name-icon-1">Наименование документа</div>
-              <div class="info__charact-line"></div>
-              <div class="info__charact-desc"><? echo carbon_get_post_meta(get_the_ID(), "cher_title_doc"); ?></div>
-            </div>
+            <? $cher_title_doc = carbon_get_post_meta(get_the_ID(), "cher_title_doc");
+            if (!empty($cher_title_doc)) { ?>
+              <div class="info__charact-row d-flex">
+                <div class="info__charact-name charact-name-icon-1">Наименование документа</div>
+                <div class="info__charact-line"></div>
+                <div class="info__charact-desc"><? echo $cher_title_doc; ?></div>
+              </div>
+            <? } ?>
 
-            <div class="info__charact-row d-flex">
-              <div class="info__charact-name charact-name-icon-2">Сроки выполнения работ</div>
-              <div class="info__charact-line"></div>
-              <div class="info__charact-desc"><? echo carbon_get_post_meta(get_the_ID(), "cher_work_time"); ?></div>
-            </div>
+            <? $cher_work_time = carbon_get_post_meta(get_the_ID(), "cher_work_time");
+            if (!empty($cher_work_time)) { ?>
+              <div class="info__charact-row d-flex">
+                <div class="info__charact-name charact-name-icon-2">Сроки выполнения работ</div>
+                <div class="info__charact-line"></div>
+                <div class="info__charact-desc"><? echo $cher_work_time; ?></div>
+              </div>
+            <? } ?>
 
-            <div class="info__charact-row d-flex">
-              <div class="info__charact-name charact-name-icon-3">Стоимость</div>
-              <div class="info__charact-line"></div>
-              <div class="info__charact-desc"><? echo carbon_get_post_meta(get_the_ID(), "cher_work_price"); ?></div>
-            </div>
+            <? $cher_work_price = carbon_get_post_meta(get_the_ID(), "cher_work_price");
+            if (!empty($cher_work_price)) { ?>
+              <div class="info__charact-row d-flex">
+                <div class="info__charact-name charact-name-icon-3">Стоимость</div>
+                <div class="info__charact-line"></div>
+                <div class="info__charact-desc"><? echo $cher_work_price; ?></div>
+              </div>
+            <? } ?>
 
           </div>
           <a href="#callback" class="header__popup-link btn _popup-link">ЗАКАЗАТЬ ЗВОНОК</a>

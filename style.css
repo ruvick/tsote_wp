@@ -1227,8 +1227,12 @@ body.ie .ibg img {
     line-height: 19.2px;
     margin-bottom: 20px; }
 
-.info__charact {
-  margin-bottom: 44.3px; }
+/* .info__charact {
+  margin-bottom: 44.3px; } */
+
+.info__card-block-desc .header__popup-link {
+  margin-top: 44.3px;
+}
 
 .info__charact-row {
   -webkit-box-pack: justify;
@@ -1272,6 +1276,10 @@ body.ie .ibg img {
   align-self: flex-end;
   border-bottom: 1px solid #E7E7E7;
   margin: 0 10px 0 10px; }
+
+.info__charact-desc {
+  text-align: right;
+}
 
 .info__card-block-img {
   -webkit-box-flex: 0;
@@ -1834,7 +1842,39 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   margin: 10px 0; }
 /* Popup JS End*/
 
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 35px;
+}
 
+.content ul {
+  margin-bottom: 35px;
+}
+
+.content ul li {
+  margin-bottom: 15px;
+}
+
+.content ul li:last-child {
+  margin-bottom: 0;
+}
+
+.content ol {
+  margin-bottom: 35px;
+}
+
+.content ol li {
+  margin-bottom: 15px;
+}
+
+.content ol li:last-child {
+  margin-bottom: 0;
+}
 
 @media (max-width: 1280px) {
   .container {
