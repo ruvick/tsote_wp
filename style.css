@@ -1320,8 +1320,15 @@ body.ie .ibg img {
 .slider {
   position: relative; }
 
+.slider .container {
+  display: flex;
+  align-items: center;
+}
+
 .slider__item {
-  padding: 89px 0 143px 0;
+  /* padding: 89px 0 143px 0; */
+  display: flex !important;
+  height: 500px;
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1329,15 +1336,15 @@ body.ie .ibg img {
 
 /* Точки (булиты) */
 .slider .slick-dots {
-  max-width: 110px;
-  width: 100%;
+  /* max-width: 110px;
+  width: 100%; */
   height: 36px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
+  /* -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: space-between; */
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1353,7 +1360,13 @@ body.ie .ibg img {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #6BC72B; }
+  border: 2px solid #6BC72B; 
+  margin-right: 10px;
+}
+
+.slider .slick-dots li:last-child { 
+  margin-right: 0;
+}
 
 /* Активная точка */
 .slider .slick-dots li.slick-active {
@@ -1370,7 +1383,7 @@ body.ie .ibg img {
   border-radius: 5px 5px 5px 0;
   background: #6BC72B;
   position: relative;
-  opacity: 0.7; }
+  opacity: 0.9; }
 
 .slider__text h1 {
   margin-bottom: 29px; }
@@ -1849,7 +1862,7 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
 .content h6 {
   font-weight: 600;
   color: #000;
-  margin-bottom: 35px;
+  margin-bottom: 35px; 
 }
 
 .content ul {
@@ -2133,7 +2146,22 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   .header__email {
     display: none; }
   .footer__contact .header__email {
-    display: block; } }
+    display: block; } 
+  .slider__text h1 {
+    font-size: 40px;
+    line-height: 45px;
+  }
+}
+
+@media (max-width: 420px) {
+  .slider__text {
+    border-radius: 5px 5px 0 0;
+  }
+  .slider__text h1 {
+    font-size: 36px;
+    line-height: 38px;
+  }
+}
 
 @media (max-width: 414px) {
   .slider__text {
@@ -2148,6 +2176,13 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
     font-size: 14px; }
   .info__card-block-desc .header__popup-link {
     width: 100%; } }
+
+@media (max-width: 370px) {
+  .slider__text h1 {
+    font-size: 33px;
+    line-height: 35px;
+  }
+}
 
 @media (max-width: 360px) {
   .header__phone {
@@ -2166,6 +2201,13 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
     font-size: 12px; }
   .popup__form-block {
     padding: 45px 20px 35px 20px; } }
+
+@media (max-width: 340px) {
+  .slider__text h1 {
+    font-size: 30px;
+    line-height: 33px;
+  }
+}
 
 @media (max-width: 320px) {
   .clients__slider .slick-arrow.slick-next {
