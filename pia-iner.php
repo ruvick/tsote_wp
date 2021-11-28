@@ -115,7 +115,7 @@ add_action('admin_menu', function(){
 
 	<div id = "wpbody-content" class="wrapEr">
 		
-		<h1>Управление магазином</h1>
+		<div class="h1">Управление магазином</div>
 		<div class = "pages">
 			<a href = "?page=upravlenie-magazinom">Собственное наличие</a>
 			<a href = "?page=magaz_zakz_managment">Заказы</a>
@@ -166,7 +166,7 @@ add_action('admin_menu', function(){
 		</div>
 		
 		<div class = "zakPageSide" id = "zakPageSideRight">
-			<h2>Детали заказа</h2>
+			<div class="h2">Детали заказа</div>
 			<table class = "zakDetalesTable">
 				<tr><th>Номер закза:</th> <td><span id = "vNumber"></span><td></tr>
 				<tr><th>Дата оформления закза:</th> <td> <span id = "vData"></span><td></tr>
@@ -188,9 +188,9 @@ add_action('admin_menu', function(){
 					<td>
 				</tr>
 			</table>
-			<h2>Комментарий к заказу:</h2> 
+			<div class="h2">Комментарий к заказу:</div> 
 			<span id = "vComment"></span><br/>
-			<h2>Заказ:</h2> 
+			<div class="h2">Заказ:</div> 
 			<div class = "tz">
 			
 			</div>

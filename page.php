@@ -19,7 +19,7 @@ get_header(); ?>
 
 	<main id="primary" class="page site-main"> 
 
-		<section class="content"> 
+		<div class="content"> 
 			<div class="container">
 
 			<?php
@@ -35,7 +35,7 @@ get_header(); ?>
 				<?php endif; ?> 
 
 			</div>
-		</section>
+		</div>
 	</main>
 
 <?php get_footer();

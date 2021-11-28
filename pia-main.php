@@ -136,7 +136,7 @@ function magaz_managment() {
 	}
 ?>
 	<div id = "wpbody-content" class="wrapEr">
-		<h1>Управление магазином</h1>
+		<div class="h1">Управление магазином</div>
 		<div class = "pages">
 			<a href = "?page=upravlenie-magazinom">Собственное наличие</a>
 			<a href = "?page=magaz_zakz_managment">Заказы</a>
@@ -206,7 +206,7 @@ function magaz_managment() {
 		
 		
 		<form id = "addForm" method = "post">
-			<h2>Добавить элемент</h2>
+			<div class="h2">Добавить элемент</div>
 			
 			<input type = "hidden" name = "page" value = "upravlenie-magazinom" ><br/>
 			
@@ -221,7 +221,7 @@ function magaz_managment() {
 		</form>
 		
 		<form enctype="multipart/form-data" id = "addFileForm" method = "post">
-			<h2>Добавить из файла</h2>
+			<div class="h2">Добавить из файла</div>
 			<input type="file" id="fileLoad" name="fileLoad" ><br/><br/>
 			<input type = "checkbox" name = "erize" id = "erize"><label for = "erize">Очистить таблицу</label><br/><br/>
 			<input type = "submit" name = "addFile" value = "Загрузить файл"><br/>

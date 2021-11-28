@@ -4,7 +4,7 @@
 
 <main class="page">
 
-  <section class="category info content">
+  <div class="category info content">
     <div class="container">
 
       <?php
@@ -54,7 +54,7 @@
 
         <div class="info__card-block-img">
           <img src="<?php $imgTm = get_the_post_thumbnail_url(get_the_ID(), "tominiatyre");
-                    echo empty($imgTm) ? get_bloginfo("template_url") . "/img/no-photo.jpg" : $imgTm; ?>" alt="">
+                    echo empty($imgTm) ? get_bloginfo("template_url") . "/img/no-photo.jpg" : $imgTm; ?>" alt="<?php the_title(); ?>" title="<?php the_title();?>" loading="lazy">
         </div>
 
       </div>
@@ -64,38 +64,38 @@
       </div>
 
     </div>
-  </section>
+  </div>
 
-  <section class="also">
+  <!-- <section class="also">
     <div class="container">
-      <h2>Смотрите также</h2>
+      <div class="h2">Смотрите также</div>
       <div class="services__row d-flex">
         <?php
-        $categories = get_the_category($post->ID);
-        if ($categories) {
-          $category_ids = array();
-          foreach ($categories as $individual_category) $category_ids[] = $individual_category->term_id;
-          $args = array(
-            'category__in' => $category_ids,
-            'post__not_in' => array($post->ID),
-            'showposts' => 3,
-            'caller_get_posts' => 1
-          );
-          $my_query = new wp_query($args);
-          if ($my_query->have_posts()) {
-            while ($my_query->have_posts()) {
-              $my_query->the_post();
-        ?>
-              <?php get_template_part('template-parts/product-elem'); ?>
-        <?php
-            }
-          }
-          wp_reset_query();
-        }
+        // $categories = get_the_category($post->ID);
+        // if ($categories) {
+        //   $category_ids = array();
+        //   foreach ($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+        //   $args = array(
+        //     'category__in' => $category_ids,
+        //     'post__not_in' => array($post->ID),
+        //     'showposts' => 3,
+        //     'caller_get_posts' => 1
+        //   );
+        //   $my_query = new wp_query($args);
+        //   if ($my_query->have_posts()) {
+        //     while ($my_query->have_posts()) {
+        //       $my_query->the_post();
+        // ?>
+        //       <?php // get_template_part('template-parts/product-elem'); ?>
+        // <?php
+        //     }
+        //   }
+        //   wp_reset_query();
+        // }
         ?>
       </div>
     </div>
-  </section>
+  </section> -->
 
 </main>
 

@@ -43,8 +43,27 @@ get_header(); ?>
 				$tel2 = carbon_get_theme_option("as_phone_2");
 				if (!empty($tel)) { ?><li>Тел: <strong><a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>"><? echo $tel; ?></strong></a> <a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel2); ?>"><? echo $tel2; ?></strong></a></li><? } ?>
 			</ul>
+			<div style="position: relative; overflow: hidden">
+				<a
+					href="https://yandex.ru/maps/org/tsentr_okhrany_truda/1729235473/?utm_medium=mapframe&utm_source=maps"
+					style="color: #eee; font-size: 12px; position: absolute; top: 0px"
+					>Центр Охраны Труда</a
+				><a
+					href="https://yandex.ru/maps/8/kursk/category/health_and_safety/184105368/?utm_medium=mapframe&utm_source=maps"
+					style="color: #eee; font-size: 12px; position: absolute; top: 14px"
+					>Безопасность труда в Курске</a
+				><iframe
+					src="https://yandex.ru/map-widget/v1/-/CCUqJHUR9B"
+					width="100%"
+					height="600px"
+					frameborder="1"
+					allowfullscreen="true"
+					style="position: relative"
+				></iframe>
+			</div>
 
-			<div class="block__map" id="map"></div>
+			<!-- <div class="block__map" id="map"></div>
+
 			<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 
 			<script>
@@ -87,7 +106,7 @@ get_header(); ?>
 					myMap.behaviors.disable('scrollZoom');
 
 				}
-			</script>
+			</script> -->
 
 		</div>
 	</section>

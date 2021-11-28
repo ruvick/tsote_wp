@@ -290,7 +290,6 @@ $ = jQuery;
 var inputmask_phone = { "mask": "+9(999)999-99-99" };
 jQuery("input[type=tel]").inputmask(inputmask_phone);
 
-
 // // Slider на главной
 $('.slider').slick({
 	arrows: false,
@@ -351,6 +350,15 @@ $('body').on('click', '.tab__navitem', function (event) {
 });
 
 
+// Открытие модального окна
+$(".popup-quest").on('click', function (e) {
+	e.preventDefault();
+	jQuery(".windows_form h2").html(jQuery(this).data("winheader"));
+	jQuery(".windows_form .subtitle").html(jQuery(this).data("winsubheader"));
+	jQuery("#question").arcticmodal();
+});
+
+
 //Валидация + Отправщик
 $('.newButton').click(function (e) {
 
@@ -393,3 +401,38 @@ $('.newButton').click(function (e) {
 	}
 });
 
+// Поиск по сайту
+jQuery(document).ready(function ($) {
+    const search_input = $('.search-form__input');
+    const search_results = $('.ajax-search');
+
+    search_input.keyup(function () {
+        let search_value = $(this).val();
+
+        if (search_value.length > 2) { // кол-во символов 
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php',
+                type: 'POST',
+                data: {
+                    'action': 'ajax_search', // functions.php 
+                    'term': search_value
+                },
+                success: function (results) {
+                    search_results.fadeIn(200).html(results);
+                }
+            });
+        } else {
+            search_results.fadeOut(200);
+        }
+    });
+
+    // Закрытие поиска при клике вне его 
+    $(document).mouseup(function (e) {
+        if (
+            (search_input.has(e.target).length === 0) &&
+            (search_results.has(e.target).length === 0)
+        ) {
+            search_results.fadeOut(200);
+        };
+    });
+});

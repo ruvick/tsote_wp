@@ -6,9 +6,9 @@
 		<div class="popup__body">
 			<div class="popup__close"></div>
 			<div class="popup__item d-flex">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/popup-img.jpg" alt="">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/popup-img.jpg" alt="Заявка на обратный звонок" loading="lazy">
 				<div class="popup__form-block">
-					<h2>Заявка на обратный звонок</h2>
+					<div class="h2">Заявка на обратный звонок</div>
 					<div class="SendetMsg" style="display:none;">
 						Ваше сообщение успешно отправлено.
 					</div>
@@ -45,9 +45,9 @@
 <div style="display: none;">
 	<div class="box-modal box-modal-new box-modal-new__cust" id="question">
 		<div class="box-modal_close box-modal_close_new arcticmodal-close">X</div>
-		<img src="<?php bloginfo("template_url") ?>/img/similar-01.jpg" loading="lazy" />
+		<img src="<?php bloginfo("template_url") ?>/img/similar-01.jpg" alt="Заказать звонок" loading="lazy" />
 		<div class="formArctikBlk mod-zagr-tur">
-			<h2>Заказать звонок <span class='tkName'></span></h2>
+			<div class="h2">Заказать звонок <span class='tkName'></span></div>
 			<p>Наши специалисты свяжутся с Вами в течение 15 минут</p>
 
 			<form action="#" class="form-question">

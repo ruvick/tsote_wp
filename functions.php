@@ -1,4 +1,15 @@
 <?php
+require_once 'htmlsitemap.php';
+
+require get_template_directory() . '/functions/ajax-search.php'; # AJAX search
+
+function adjust_single_breadcrumb($link_output) {
+	if(strpos( $link_output, 'breadcrumb_last' ) !== false ) {
+		$link_output = '';
+	}
+   return $link_output;
+}
+add_filter('wpseo_breadcrumb_single_link', 'adjust_single_breadcrumb' );
 
 define("COMPANY_NAME", "ЦОТЭ");
 define("MAIL_RESEND", "noreply@ultrakresla.ru");
@@ -34,6 +45,7 @@ add_action('after_setup_theme', function () {
 		// 'menu_hot' => 'Меню актуальных предложений (рядом с каталогом)',
 		// 'menu_cat' => 'Меню каталога', 
 		'menu_main' => 'Меню основное',
+		'menu_footer' => 'Меню в подвале',
 		// 'menu_corp' => 'Общекорпоративное меню (верхняя шапка)', 
 	]);
 });
@@ -76,8 +88,8 @@ function my_assets()
 
 	// Подключение стилей 
 
-	$style_version = "1.0.4";
-	$scrypt_version = "1.0.4";
+	$style_version = "1.0.5";
+	$scrypt_version = "1.0.5";
 
 	wp_enqueue_style("style-modal", get_template_directory_uri() . "/css/jquery.arcticmodal-0.3.css", array(), $style_version, 'all'); //Модальные окна (стили)
 	wp_enqueue_style("style-lightbox", get_template_directory_uri() . "/css/lightbox.min.css", array(), $style_version, 'all'); //Лайтбокс (стили)

@@ -7,7 +7,7 @@
 
   <meta charset="UTF-8">
   <meta name="format-detection" content="telephone=no">
-  <meta name="description" content="Новый сайт">
+  <!-- <meta name="description" content="Новый сайт"> -->
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/favicons/icon256.png" sizes="256x256">
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/favicons/icon128.png" sizes="128x128">
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/favicons/icon64.png" sizes="64x64">
@@ -16,7 +16,8 @@
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/favicons/fav.svg" sizes="any">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="yandex-verification" content="26415688c9acef2a" />
+  <meta name="google-site-verification" content="HOXM0ST7hL1gGbLQnxS6xIVAfzzzstqvAULz0Rg2G7A" />
   <?php wp_head(); ?>
 
 </head>

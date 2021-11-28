@@ -4,7 +4,7 @@
 
 <main class="page">
 
-  <section class="category info">
+  <div class="category info">
     <div class="container">
 
       <?php
@@ -25,24 +25,24 @@
       </div>
 
     </div>
-  </section>
+  </div>
 
-  <section class="also">
+  <!-- <section class="also">
     <div class="container">
-      <h2>Смотрите также</h2>
+      <div class="h2">Смотрите также</div>
       <div class="services__row d-flex">
         <?php
-        global $query_string;
-        query_posts($query_string . '&order=ASC&posts_per_page=3');
-        while (have_posts()) :
-          the_post();
-          get_template_part('template-parts/product-elem');
-        endwhile;
-        wp_reset_query();
+        // global $query_string;
+        // query_posts($query_string . '&order=ASC&posts_per_page=3');
+        // while (have_posts()) :
+        //   the_post();
+        //   get_template_part('template-parts/product-elem');
+        // endwhile;
+        // wp_reset_query();
         ?>
       </div>
     </div>
-  </section>
+  </section> -->
 
 </main>
 

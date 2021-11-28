@@ -12,7 +12,7 @@ get_header(); ?>
 
 <main id="primary" class="page site-main"> 
 
-	<section class="content"> 
+	<div class="content"> 
 		<div class="container">
 
 		<?php get_template_part('template-parts/benefit-slider');?>
@@ -89,9 +89,9 @@ get_header(); ?>
 				// echo "</pre>";
 			?>
 
-			<h1>Результаты поиска</h1>
+			<div class="h1" style="color: #000; margin-bottom: 40px;">Результаты поиска</div>
 
-			<div class="prod-card d-flex">
+			<div class="prod-card d-flex search-result">
 
 				<?php
 				while(have_posts()):
@@ -105,7 +105,7 @@ get_header(); ?>
 			<?php if ( function_exists( 'wp_corenavi' ) ) wp_corenavi(); ?>
 
 		</div>
-	</section>
+	</div>
 </main>
 
 <?php get_footer();
