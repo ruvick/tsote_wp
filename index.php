@@ -4,18 +4,18 @@
 
 <main class="page">
 
-	<div id="slider" class="slider">
+	<section id="slider" class="slider">
 		<?
 		$pict = carbon_get_theme_option('slider_index');
 		if ($pict) {
 			$pictIndex = 0;
-			foreach ($pict as $item) {
+			foreach ($pict as $item) { 
 		?>
 				<div class="slider__item" style="background-image: url(<?php echo wp_get_attachment_image_src($item['slider_img'], 'full')[0]; ?>);">
 					<div class="container">
 						<? if (!empty($item['slider_title'])) { ?>
 							<div class="slider__text">
-								<div class="h1"><? echo $item['slider_title']; ?></div>
+								<h1><? echo $item['slider_title']; ?></h1>
 								<p><? echo $item['slider_subtitle']; ?></p>
 								<div class="slider__text-color"></div>
 							</div>
@@ -27,19 +27,19 @@
 			}
 		}
 		?>
-	</div>
+	</section>
 
 	<? $about = carbon_get_theme_option("about_home");
 	if (!empty($about)) { ?>
-		<div id="about" class="about">
+		<section id="about" class="about">
 			<div class="container">
 				<h2>О нашей компании</h2>
 				<p><? echo $about; ?></p>
 			</div>
-		</div>
+		</section>
 	<? } ?>
 
-	<div id="services" class="services">
+	<section id="services" class="services">
 		<div class="container">
 			<div class="block__tabs tabs">
 				<div class="services__title-btn d-flex">
@@ -104,64 +104,64 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<div id="clients" class="clients">
+	<section id="clients" class="clients">
 		<div class="container">
 			<h2>Наши клиенты</h2>
 			<div class="clients__slider">
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/01.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/01.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/02.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/02.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/03.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/03.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/04.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/04.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/05.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/05.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/06.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/06.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/07.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/07.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/08.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/08.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/09.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/09.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/10.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/10.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/11.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/11.png" alt="">
 				</div>
 
 				<div class="clients__slider-item">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/12.png" alt="Наш Клиент" loading="lazy">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/12.png" alt="">
 				</div>
 
 			</div>
 		</div>
-	</div>
+	</section>
 </main>
 
 <?php get_footer(); ?>
