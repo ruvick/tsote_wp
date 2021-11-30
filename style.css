@@ -2405,6 +2405,7 @@ ul.htmlsitemap-list li {
 }
 
 .block__map {
+  height: 350px;
   margin-bottom: 35px;
 }
 
