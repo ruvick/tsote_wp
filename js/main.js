@@ -326,9 +326,15 @@ $('.clients__slider').slick({
 				slidesToShow: 3,
 			}
 		}, {
-			breakpoint: 480,
+			breakpoint: 414,
 			settings: {
 				slidesToShow: 2,
+			}
+		}, {
+			breakpoint: 330,
+			settings: {
+				slidesToShow: 1.5,
+				arrows: false,
 			}
 		}
 	]
@@ -345,20 +351,34 @@ $('.licenses__slider').slick({
 	adaptiveHeight: true,
 	responsive: [
 		{
-			breakpoint: 812,
+			breakpoint: 1150,
+			settings: {
+				slidesToShow: 4,
+			}
+		},
+		{
+			breakpoint: 769,
 			settings: {
 				slidesToShow: 4,
 				arrows: false,
 			}
 		}, {
-			breakpoint: 612,
+			breakpoint: 613,
 			settings: {
 				slidesToShow: 3,
+				arrows: false,
 			}
 		}, {
-			breakpoint: 480,
+			breakpoint: 415,
 			settings: {
 				slidesToShow: 2,
+				arrows: false,
+			}
+		}, {
+			breakpoint: 330,
+			settings: {
+				slidesToShow: 1.5,
+				arrows: false,
 			}
 		}
 	]
@@ -375,20 +395,28 @@ $('.thanksgiving__slider').slick({
 	adaptiveHeight: true,
 	responsive: [
 		{
-			breakpoint: 812,
+			breakpoint: 1150,
+			settings: {
+				slidesToShow: 4,
+			}
+		},
+		{
+			breakpoint: 769,
 			settings: {
 				slidesToShow: 4,
 				arrows: false,
 			}
 		}, {
-			breakpoint: 612,
+			breakpoint: 613,
 			settings: {
 				slidesToShow: 3,
+				arrows: false,
 			}
 		}, {
-			breakpoint: 480,
+			breakpoint: 415,
 			settings: {
 				slidesToShow: 2,
+				arrows: false,
 			}
 		}
 	]
