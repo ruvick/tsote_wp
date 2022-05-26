@@ -122,10 +122,32 @@
 		</div>
 	</section>
 
+	<section id="licenses" class="licenses clients">
+		<div class="container">
+			<h2>Аккредитации и лицензии</h2>
+			<div class="licenses__slider slider-typical">
+				<? 
+					$licenses = carbon_get_theme_option('licenses_complex'); 
+						if ($licenses) {
+					$licensesIndex = 0;
+						foreach ($licenses as $item) {
+				?>
+					<div class="licenses__slider-item slider-typical__slide">
+						<img src="<?php echo wp_get_attachment_image_src($item['licenses_img'], 'large')[0]; ?>" alt="">
+					</div>
+				<?
+					$licensesIndex++; 
+						}
+					}
+				?>
+			</div>
+		</div>
+	</section>
+
 	<section id="clients" class="clients">
 		<div class="container">
 			<h2>Наши клиенты</h2>
-			<div class="clients__slider">
+			<div class="clients__slider slider-typical">
 
 				<div class="clients__slider-item">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/01.png" alt="">
@@ -175,6 +197,28 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/img/clients/12.png" alt="">
 				</div>
 
+			</div>
+		</div>
+	</section>
+
+	<section id="thanksgiving" class="thanksgiving clients">
+		<div class="container">
+			<h2>Благодарственные письма</h2>
+			<div class="thanksgiving__slider slider-typical">
+				<? 
+					$thanksgiving = carbon_get_theme_option('thanksgiving_complex'); 
+						if ($thanksgiving) {
+					$thanksgivingIndex = 0;
+						foreach ($thanksgiving as $item) {
+				?>
+					<div class="thanksgiving__slider-item slider-typical__slide">
+					<img src="<?php echo wp_get_attachment_image_src($item['thanksgiving_img'], 'large')[0]; ?>" alt="">
+					</div>
+				<?
+					$thanksgivingIndex++; 
+						}
+					}
+				?>
 			</div>
 		</div>
 	</section>

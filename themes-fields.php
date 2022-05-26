@@ -28,6 +28,20 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
           ->set_width(50),
       ))
   ))
+  ->add_tab('Аккредитации и лицензии', array(
+    Field::make('complex', 'licenses_complex', 'Слайдер Аккредитации и лицензии')
+      ->add_fields(array(
+        Field::make('image', 'licenses_img', 'Картинка слайдера')
+          ->set_width(100),
+      ))
+  ))
+  ->add_tab('Благодарственные письма', array(
+    Field::make('complex', 'thanksgiving_complex', 'Благодарственные письма')
+      ->add_fields(array(
+        Field::make('image', 'thanksgiving_img', 'Картинка слайдера')
+          ->set_width(100),
+      ))
+  ))
   ->add_tab('Контакты', array(
     Field::make('text', 'as_company', __('Название'))
       ->set_width(50),

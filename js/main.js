@@ -130,7 +130,7 @@ if (mobsearch) {
 window.addEventListener('click', e => { // при клике в любом месте окна браузера
 	const target = e.target // находим элемент, на котором был клик
 
-	if (!target.closest('.icon-menu') && !$(menuBody).has($(target)).length <=0 && !target.closest('.mob-menu') && !target.closest('.mob-search') && !target.closest('.header__search') && !target.closest('._popup-link') && !target.closest('.popup')) {
+	if (!target.closest('.icon-menu') && !$(menuBody).has($(target)).length <= 0 && !target.closest('.mob-menu') && !target.closest('.mob-search') && !target.closest('.header__search') && !target.closest('._popup-link') && !target.closest('.popup')) {
 		iconMenu.classList.remove('active') // то закрываем окно навигации, удаляя активный класс
 		menuBody.classList.remove('active')
 		body.classList.remove('lock')
@@ -318,6 +318,67 @@ $('.clients__slider').slick({
 			breakpoint: 812,
 			settings: {
 				slidesToShow: 4,
+				arrows: false,
+			}
+		}, {
+			breakpoint: 612,
+			settings: {
+				slidesToShow: 3,
+			}
+		}, {
+			breakpoint: 480,
+			settings: {
+				slidesToShow: 2,
+			}
+		}
+	]
+});
+
+$('.licenses__slider').slick({
+	arrows: true,
+	dots: false,
+	infinite: true,
+	speed: 1000,
+	slidesToShow: 5,
+	autoplay: true,
+	autoplaySpeed: 1800,
+	adaptiveHeight: true,
+	responsive: [
+		{
+			breakpoint: 812,
+			settings: {
+				slidesToShow: 4,
+				arrows: false,
+			}
+		}, {
+			breakpoint: 612,
+			settings: {
+				slidesToShow: 3,
+			}
+		}, {
+			breakpoint: 480,
+			settings: {
+				slidesToShow: 2,
+			}
+		}
+	]
+});
+
+$('.thanksgiving__slider').slick({
+	arrows: true,
+	dots: false,
+	infinite: true,
+	speed: 1000,
+	slidesToShow: 5,
+	autoplay: true,
+	autoplaySpeed: 1800,
+	adaptiveHeight: true,
+	responsive: [
+		{
+			breakpoint: 812,
+			settings: {
+				slidesToShow: 4,
+				arrows: false,
 			}
 		}, {
 			breakpoint: 612,
@@ -360,9 +421,9 @@ $(".popup-quest").on('click', function (e) {
 });
 
 
-var onloadCallback = function() {
-	var widgetServices = grecaptcha.render( document.querySelector('.form-services .g-recaptcha'), { 'sitekey': '6LdHmJwdAAAAAK197nHFbG8xLm4qN9h6hLTr9b6w' } );
-	var widgetCallback = grecaptcha.render( document.querySelector('.popup_callback .g-recaptcha'), { 'sitekey': '6LdHmJwdAAAAAK197nHFbG8xLm4qN9h6hLTr9b6w' } );
+var onloadCallback = function () {
+	var widgetServices = grecaptcha.render(document.querySelector('.form-services .g-recaptcha'), { 'sitekey': '6LdHmJwdAAAAAK197nHFbG8xLm4qN9h6hLTr9b6w' });
+	var widgetCallback = grecaptcha.render(document.querySelector('.popup_callback .g-recaptcha'), { 'sitekey': '6LdHmJwdAAAAAK197nHFbG8xLm4qN9h6hLTr9b6w' });
 
 	$('.newButton').click(function (e) {
 		e.preventDefault();
@@ -373,7 +434,7 @@ var onloadCallback = function() {
 		const tel = $("#form-callback-tel").val();
 		const email = $("#form-callback-email").val();
 
-		if(!captcha.length) {
+		if (!captcha.length) {
 			$(this).parent().find('.recaptchaError').text('* Вы не прошли проверку "Я не робот"');
 			// Если сервер вернул ответ error, то сбрасываем виджет reCaptcha
 			grecaptcha.reset(widgetCallback);
@@ -406,8 +467,8 @@ var onloadCallback = function() {
 		}
 	});
 
-	if($('.form-services .g-recaptcha').length > 0){
-		$('.form-services .submit-button').click(function(e){
+	if ($('.form-services .g-recaptcha').length > 0) {
+		$('.form-services .submit-button').click(function (e) {
 			e.preventDefault();
 			const captcha = grecaptcha.getResponse(widgetServices);
 			const name = $(".form-services input[name='bane']").val();
@@ -415,7 +476,7 @@ var onloadCallback = function() {
 			const email = $(".form-services input[name='email']").val();
 			const button = $(this);
 
-			if(!captcha.length) {
+			if (!captcha.length) {
 				$(this).parent().find('.recaptchaError').text('* Вы не прошли проверку "Я не робот"');
 				$(this).parent().find('.recaptchaError').addClass('show')
 				// Если сервер вернул ответ error, то сбрасываем виджет reCaptcha
@@ -433,7 +494,7 @@ var onloadCallback = function() {
 					$.ajax({
 						url: allAjax.ajaxurl,
 						type: 'post',
-						data: {action: 'sendphone', nonce: allAjax.nonce, name: name, tel: tel.val(), email: email, captcha: captcha}
+						data: { action: 'sendphone', nonce: allAjax.nonce, name: name, tel: tel.val(), email: email, captcha: captcha }
 					}).done(function (response) {
 						//console.log(response)
 						button.prop('disabled', true);
@@ -446,7 +507,7 @@ var onloadCallback = function() {
 				}
 			}
 		})
-		$('.form-services').submit(function(e){
+		$('.form-services').submit(function (e) {
 			e.preventDefault();
 		})
 	}
@@ -454,44 +515,44 @@ var onloadCallback = function() {
 
 // Поиск по сайту
 jQuery(document).ready(function ($) {
-    const search_input = $('.search-form__input');
-    const search_results = $('.ajax-search');
+	const search_input = $('.search-form__input');
+	const search_results = $('.ajax-search');
 
-    search_input.keyup(function () {
-        let search_value = $(this).val();
+	search_input.keyup(function () {
+		let search_value = $(this).val();
 
-        if (search_value.length > 2) { // кол-во символов 
-            $.ajax({
-                url: '/wp-admin/admin-ajax.php',
-                type: 'POST',
-                data: {
-                    'action': 'ajax_search', // functions.php 
-                    'term': search_value
-                },
-                success: function (results) {
-                    search_results.fadeIn(200).html(results);
-                }
-            });
-        } else {
-            search_results.fadeOut(200);
-        }
-    });
+		if (search_value.length > 2) { // кол-во символов 
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				type: 'POST',
+				data: {
+					'action': 'ajax_search', // functions.php 
+					'term': search_value
+				},
+				success: function (results) {
+					search_results.fadeIn(200).html(results);
+				}
+			});
+		} else {
+			search_results.fadeOut(200);
+		}
+	});
 
-    // Закрытие поиска при клике вне его 
-    $(document).mouseup(function (e) {
-        if (
-            (search_input.has(e.target).length === 0) &&
-            (search_results.has(e.target).length === 0)
-        ) {
-            search_results.fadeOut(200);
-        };
-    });
+	// Закрытие поиска при клике вне его 
+	$(document).mouseup(function (e) {
+		if (
+			(search_input.has(e.target).length === 0) &&
+			(search_results.has(e.target).length === 0)
+		) {
+			search_results.fadeOut(200);
+		};
+	});
 
-    $('.mob-menu .has-dropdown .dropdown-arrow').click(function(e){
-    	e.preventDefault();
-    	console.log($(this))
-    	$(this).toggleClass('opened');
-    	$(this).parents('.has-dropdown').parent().children('.sub-menu').toggleClass('opened');
-    })
+	$('.mob-menu .has-dropdown .dropdown-arrow').click(function (e) {
+		e.preventDefault();
+		console.log($(this))
+		$(this).toggleClass('opened');
+		$(this).parents('.has-dropdown').parent().children('.sub-menu').toggleClass('opened');
+	})
 });
 
