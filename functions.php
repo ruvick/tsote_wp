@@ -103,7 +103,8 @@ function my_assets()
 	wp_enqueue_script('jquery');
 
 	wp_enqueue_script('amodal', get_template_directory_uri() . '/js/jquery.arcticmodal-0.3.min.js', array(), $scrypt_version, true); //Модальные окна
-	wp_enqueue_script('mask', get_template_directory_uri() . '/js/jquery.inputmask.bundle.js', array(), $scrypt_version, true); //маска для инпутов
+	//wp_enqueue_script('mask', get_template_directory_uri() . '/js/jquery.inputmask.bundle.js', array(), $scrypt_version, true); //маска для инпутов
+	wp_enqueue_script('mask', get_template_directory_uri() . '/js/inputmask-5.0.8.min.js', array(), $scrypt_version, true); //маска для инпутов
 	wp_enqueue_script('lightbox', get_template_directory_uri() . '/js/lightbox.min.js', array(), $scrypt_version, true); //Лайтбокс
 	wp_enqueue_script('slick', get_template_directory_uri() . '/js/slick.min.js', array(), $scrypt_version, true); //Слайдер
 	wp_enqueue_script('fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array(), $scrypt_version, true); //fancybox
@@ -323,21 +324,42 @@ add_action('wp_ajax_nopriv_sendphone', 'sendphone');
 
 function sendphone()
 {
+	$secret = '6LdHmJwdAAAAACJ1G2VgKg72jvYkVEQlVRHK4OQ5';
+	require_once('recaptcha/autoload.php');
+	
+
 	if (empty($_REQUEST['nonce'])) {
 		wp_die('0');
 	}
 
 	if (check_ajax_referer('NEHERTUTLAZIT', 'nonce', false)) {
 
-		$headers = array(
-			'From: Сайт ' . COMPANY_NAME . ' <' . MAIL_RESEND . '>',
-			'content-type: text/html',
-		);
+		if (isset($_POST['captcha'])) {
+			// создать экземпляр службы recaptcha, используя секретный ключ
+			$recaptcha = new \ReCaptcha\ReCaptcha($secret);
+			
+			// получить результат проверки кода recaptcha
+			$resp = $recaptcha->verify($_POST['captcha'], $_SERVER['REMOTE_ADDR']);
 
-		add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
-		if (wp_mail(carbon_get_theme_option('as_email_send'), 'Заказ звонка', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"], $headers))
-			wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
-		else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+			// если результат положительный, то...
+			if ($resp->isSuccess()){
+				$headers = array(
+					'From: Сайт ' . COMPANY_NAME . ' <' . MAIL_RESEND . '>',
+					'content-type: text/html',
+				);
+		
+				add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
+				if (wp_mail(carbon_get_theme_option('as_email_send'), 'Заказ звонка', '<strong>Имя:</strong> ' . $_REQUEST["name"] . ' <br/> <strong>Телефон:</strong> ' . $_REQUEST["tel"], $headers))
+					wp_die("<span style = 'color:green;'>Мы свяжемся с Вами в ближайшее время.</span>");
+				else wp_die("<span style = 'color:red;'>Сервис недоступен попробуйте позднее.</span>");
+
+			} else {
+				$data['result']='error';
+			}
+		} else {
+			$data['result']='error';
+		}
+
 	} else {
 		wp_die('НО-НО-НО!', '', 403);
 	}
@@ -513,5 +535,74 @@ function send_cart()
 		}
 	} else {
 		wp_die('НО-НО-НО!', '', 403);
+	}
+}
+
+class Modified_Desktop_Nav_menu extends Walker_Nav_Menu {
+
+	// add classes to ul sub-menus
+	function start_lvl( &$output, $depth = 0, $args = NULL ) {
+		// depth dependent classes
+		$indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
+		$display_depth = ( $depth + 1); // because it counts the first submenu as 0
+		$classes = array(
+			'sub-menu',
+			( $display_depth % 2  ? 'menu-odd' : 'menu-even' ),
+			( $display_depth >=2 ? 'sub-sub-menu' : '' ),
+			'menu-depth-' . $display_depth
+			);
+		$class_names = implode( ' ', $classes );
+
+		// build html
+		$output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
+	}
+
+	// add main/sub classes to li's and links
+	function start_el( &$output, $item, $depth = 0, $args = NULL, $id = 0 ) {
+		global $wp_query;
+		$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+
+		// depth dependent classes
+		$depth_classes = array(
+			( $depth == 0 ? 'main-menu-item' : 'sub-menu-item' ),
+			( $depth >=2 ? 'sub-sub-menu-item' : '' ),
+			( $depth % 2 ? 'menu-item-odd' : 'menu-item-even' ),
+			'menu-item-depth-' . $depth
+		);
+		$depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
+
+		// passed classes
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+
+		//echo "<pre>"; print_r($classes); echo "</pre>";
+
+		$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+
+		// build html
+		$output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
+
+		//$output .= $class_names;
+
+		// link attributes
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+		$attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
+
+		$item_output = sprintf( '%8$s%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s%7$s%9$s',
+			$args->before,
+			$attributes,
+			$args->link_before,
+			apply_filters( 'the_title', $item->title, $item->ID ),
+			$args->link_after,
+			$args->after,
+			in_array('menu-item-has-children', $classes) ? '<div class="dropdown-arrow"><img src="'. get_template_directory_uri() .'/img/dropdown-arrow.svg"></div>' : '',
+			in_array('menu-item-has-children', $classes) ? '<div class="has-dropdown">' : '',
+			in_array('menu-item-has-children', $classes) ? '</div>' : '',
+		);
+
+		// build html
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 }

@@ -20,6 +20,8 @@
 							<input type="text" name="email" placeholder="Email" id="form-callback-email" class="popup__form-input input">
 							<p>Заполняя данную форму вы соглашаетесь с <a href="<?php echo get_permalink(452); ?>">политикой конфиденциальности</a></p>
 							<button class="popup__form-btn newButton btn">Отправить заявку</button>
+							<div class="g-recaptcha"></div>
+							<div class="text-danger recaptchaError"></div>
 						</form>
 					</div>
 				</div>
@@ -30,6 +32,7 @@
 <!-- <a href="#callback" class="header__popup-link _popup-link">ЗАКАЗАТЬ ЗВОНОК</a> -->
 <!-- Popup-JS End -->
 
+<?/*
 <div style="display: none;">
 	<div class="box-modal" id="messgeModal">
 		<div class="box-modal_close arcticmodal-close"><? _e("закрыть", "rubex"); ?></div>
@@ -60,6 +63,8 @@
 				</div>
 				<div class="callback-note mod-zagr-tur__note">Нажимая на кнопку "Отправить", вы соглашаетесь с <a class="tdu" href="<?php echo get_permalink(1312); ?>">условиями обработки персональных данных</a>.</div>
 				<button type="submit" class="newButton btn">Отправить</button>
+				<div class="g-recaptcha" data-sitekey="6LdHmJwdAAAAAK197nHFbG8xLm4qN9h6hLTr9b6w"></div>
+				<div class="text-danger recaptchaError"></div>
 			</form>
 
 		</div>

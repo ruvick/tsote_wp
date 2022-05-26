@@ -62,9 +62,29 @@
       <div class="info__desc">
         <?php the_content(); ?>
       </div>
+    </div>
 
+    <div class="form-services-wrapper">
+      <div class="form-services-header">
+        <div class="form-services-header-title">Остались вопросы?</div>
+        <div class="form-services-header_sub-title">Свяжитесь с нами, мы ответим на все интересующие Вас вопросы</div>
+      </div>
+      <form class="form-services page__form" action="#">
+        <div class="form-services_column">
+          <input type="tel" name="tel" placeholder="Телефон*" class="page__form-input input">
+          <input type="text" name="name" placeholder="Имя" class="page__form-input input">
+          <input type="text" name="email" placeholder="Email" class="page__form-input input">
+        </div>
+        <div class="form-services_column">
+          <div class="g-recaptcha"></div>
+          <div class="text-danger recaptchaError"></div>
+          <div class="text-response"></div>
+          <button class="submit-button btn">Отправить заявку</button>
+        </div>
+      </form>
     </div>
   </div>
+
 
   <!-- <section class="also">
     <div class="container">

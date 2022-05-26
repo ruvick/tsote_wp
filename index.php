@@ -10,19 +10,35 @@
 		if ($pict) {
 			$pictIndex = 0;
 			foreach ($pict as $item) { 
-		?>
-				<div class="slider__item" style="background-image: url(<?php echo wp_get_attachment_image_src($item['slider_img'], 'full')[0]; ?>);">
-					<div class="container">
-						<? if (!empty($item['slider_title'])) { ?>
-							<div class="slider__text">
-								<h1><? echo $item['slider_title']; ?></h1>
-								<p><? echo $item['slider_subtitle']; ?></p>
-								<div class="slider__text-color"></div>
-							</div>
-						<? } ?>
+				if($item['slider_href']){
+					?>
+					<a class="slider__item" href="<?=$item['slider_href'];?>" style="background-image: url(<?php echo wp_get_attachment_image_src($item['slider_img'], 'full')[0]; ?>);">
+						<div class="container">
+							<? if (!empty($item['slider_title'])) { ?>
+								<div class="slider__text">
+									<div class="h1"><? echo $item['slider_title']; ?></div>
+									<p><? echo $item['slider_subtitle']; ?></p>
+									<div class="slider__text-color"></div>
+								</div>
+							<? } ?>
+						</div>
+					</a>
+					<?
+				} else {
+					?>
+					<div class="slider__item" data-href="<?=$item['slider_href'];?>" style="background-image: url(<?php echo wp_get_attachment_image_src($item['slider_img'], 'full')[0]; ?>);">
+						<div class="container">
+							<? if (!empty($item['slider_title'])) { ?>
+								<div class="slider__text">
+									<div class="h1"><? echo $item['slider_title']; ?></div>
+									<p><? echo $item['slider_subtitle']; ?></p>
+									<div class="slider__text-color"></div>
+								</div>
+							<? } ?>
+						</div>
 					</div>
-				</div>
-		<?
+					<?
+				}
 				$pictIndex++;
 			}
 		}

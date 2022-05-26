@@ -97,7 +97,7 @@ function add_tocart(elem, countElem) {
 const iconMenu = document.querySelector(".icon-menu");
 const body = document.querySelector("body");
 const menuBody = document.querySelector(".mob-menu");
-const menuListItemElems = document.querySelector(".mob-menu__list");
+//const menuListItemElems = document.querySelector(".mob-menu__list");
 const mobsearch = document.querySelector(".mob-search");
 const headsearch = document.querySelector(".header__search");
 
@@ -111,13 +111,13 @@ if (iconMenu) {
 }
 
 // Закрытие моб меню при клике на якорную ссылку
-if (menuListItemElems) {
-	menuListItemElems.addEventListener("click", function () {
-		iconMenu.classList.toggle("active");
-		body.classList.toggle("lock");
-		menuBody.classList.toggle("active");
-	});
-}
+// if (menuListItemElems) {
+// 	menuListItemElems.addEventListener("click", function () {
+// 		iconMenu.classList.toggle("active");
+// 		body.classList.toggle("lock");
+// 		menuBody.classList.toggle("active");
+// 	});
+// }
 
 // Строка поиска на мобилках 
 if (mobsearch) {
@@ -129,7 +129,8 @@ if (mobsearch) {
 // Закрытие моб меню при клике вне области меню 
 window.addEventListener('click', e => { // при клике в любом месте окна браузера
 	const target = e.target // находим элемент, на котором был клик
-	if (!target.closest('.icon-menu') && !target.closest('.mob-menu') && !target.closest('.mob-search') && !target.closest('.header__search') && !target.closest('._popup-link') && !target.closest('.popup')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+
+	if (!target.closest('.icon-menu') && !$(menuBody).has($(target)).length <=0 && !target.closest('.mob-menu') && !target.closest('.mob-search') && !target.closest('.header__search') && !target.closest('._popup-link') && !target.closest('.popup')) {
 		iconMenu.classList.remove('active') // то закрываем окно навигации, удаляя активный класс
 		menuBody.classList.remove('active')
 		body.classList.remove('lock')
@@ -288,7 +289,7 @@ $ = jQuery;
 
 // Маска телефона
 var inputmask_phone = { "mask": "+9(999)999-99-99" };
-jQuery("input[type=tel]").inputmask(inputmask_phone);
+Inputmask(inputmask_phone).mask("input[type='tel']");
 
 // // Slider на главной
 $('.slider').slick({
@@ -359,47 +360,97 @@ $(".popup-quest").on('click', function (e) {
 });
 
 
-//Валидация + Отправщик
-$('.newButton').click(function (e) {
+var onloadCallback = function() {
+	var widgetServices = grecaptcha.render( document.querySelector('.form-services .g-recaptcha'), { 'sitekey': '6LdHmJwdAAAAAK197nHFbG8xLm4qN9h6hLTr9b6w' } );
+	var widgetCallback = grecaptcha.render( document.querySelector('.popup_callback .g-recaptcha'), { 'sitekey': '6LdHmJwdAAAAAK197nHFbG8xLm4qN9h6hLTr9b6w' } );
 
-	e.preventDefault();
-	const name = $("#form-callback-name").val();
-	const tel = $("#form-callback-tel").val();
-	const email = $("#form-callback-email").val();
+	$('.newButton').click(function (e) {
+		e.preventDefault();
 
-	if (jQuery("#form-callback-tel").val() == "") {
-		jQuery("#form-callback-tel").css("border", "1px solid red");
-		return;
-	}
+		const captcha = grecaptcha.getResponse(widgetCallback);
 
-	// if (jQuery("#sig-inp-e").val() == ""){
-	// 	jQuery("#sig-inp-e").css("border","1px solid red");
-	// 	return;
-	// }
+		const name = $("#form-callback-name").val();
+		const tel = $("#form-callback-tel").val();
+		const email = $("#form-callback-email").val();
 
-	else {
-		var jqXHR = jQuery.post(
-			allAjax.ajaxurl,
-			{
-				action: 'sendphone',
-				nonce: allAjax.nonce,
-				name: name,
-				tel: tel,
-				email: email,
+		if(!captcha.length) {
+			$(this).parent().find('.recaptchaError').text('* Вы не прошли проверку "Я не робот"');
+			// Если сервер вернул ответ error, то сбрасываем виджет reCaptcha
+			grecaptcha.reset(widgetCallback);
+		} else {
+			$(this).parent().find('.recaptchaError').text('');
+			if (jQuery("#form-callback-tel").val() == "") {
+				jQuery("#form-callback-tel").css("border", "1px solid red");
+			} else {
+				var jqXHR = jQuery.post(
+					allAjax.ajaxurl,
+					{
+						action: 'sendphone',
+						nonce: allAjax.nonce,
+						name: name,
+						tel: tel,
+						email: email,
+						captcha: captcha
+					}
+				);
+
+				jqXHR.done(function (responce) {
+					jQuery(".headen_form_blk").hide();
+					jQuery('.SendetMsg').show();
+				});
+
+				jqXHR.fail(function (responce) {
+					alert("Произошла ошибка. Попробуйте позднее.");
+				});
 			}
-		);
+		}
+	});
 
-		jqXHR.done(function (responce) {
-			jQuery(".headen_form_blk").hide();
-			jQuery('.SendetMsg').show();
-		});
+	if($('.form-services .g-recaptcha').length > 0){
+		$('.form-services .submit-button').click(function(e){
+			e.preventDefault();
+			const captcha = grecaptcha.getResponse(widgetServices);
+			const name = $(".form-services input[name='bane']").val();
+			const tel = $(".form-services input[name='tel']");
+			const email = $(".form-services input[name='email']").val();
+			const button = $(this);
 
-		jqXHR.fail(function (responce) {
-			alert("Произошла ошибка. Попробуйте позднее.");
-		});
+			if(!captcha.length) {
+				$(this).parent().find('.recaptchaError').text('* Вы не прошли проверку "Я не робот"');
+				$(this).parent().find('.recaptchaError').addClass('show')
+				// Если сервер вернул ответ error, то сбрасываем виджет reCaptcha
+				grecaptcha.reset(widgetServices);
+			} else {
+				$(this).parent().find('.recaptchaError').text('');
+				$(this).parent().find('.recaptchaError').removeClass('show')
 
+				if (tel.val() == "") {
+					tel.css("border", "1px solid red");
+				} else {
+					tel.css("border", "1px solid #737373");
+					//console.log( { url: allAjax.ajaxurl, none: allAjax.nonce, name: name, tel: tel, email: email, captcha: captcha} )
+
+					$.ajax({
+						url: allAjax.ajaxurl,
+						type: 'post',
+						data: {action: 'sendphone', nonce: allAjax.nonce, name: name, tel: tel.val(), email: email, captcha: captcha}
+					}).done(function (response) {
+						//console.log(response)
+						button.prop('disabled', true);
+						$('.form-services .text-response').addClass('show').html(response);
+						// jQuery(".headen_form_blk").hide();
+						//$('.SendetMsg').show();
+					}).fail(function (responce) {
+						alert("Произошла ошибка. Попробуйте позднее.");
+					});
+				}
+			}
+		})
+		$('.form-services').submit(function(e){
+			e.preventDefault();
+		})
 	}
-});
+}
 
 // Поиск по сайту
 jQuery(document).ready(function ($) {
@@ -435,4 +486,12 @@ jQuery(document).ready(function ($) {
             search_results.fadeOut(200);
         };
     });
+
+    $('.mob-menu .has-dropdown .dropdown-arrow').click(function(e){
+    	e.preventDefault();
+    	console.log($(this))
+    	$(this).toggleClass('opened');
+    	$(this).parents('.has-dropdown').parent().children('.sub-menu').toggleClass('opened');
+    })
 });
+

@@ -24,6 +24,8 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
           ->set_width(50),
         Field::make('text', 'slider_subtitle', 'Подзаголовок слайдера')
           ->set_width(50),
+        Field::make('text', 'slider_href', 'Ссылка слайдера')
+          ->set_width(50),
       ))
   ))
   ->add_tab('Контакты', array(

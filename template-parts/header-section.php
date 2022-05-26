@@ -22,13 +22,13 @@
             <nav class="menu__body">
               <?php wp_nav_menu(array(
                 'theme_location' => 'menu_main', 'menu_class' => 'menu__list',
-                'container_class' => 'menu__list', 'container' => false
+                'container_class' => 'menu__list', 'container' => false, 'walker' => new Modified_Desktop_Nav_menu(),
               )); ?>
             </nav>
             <nav class="mob-menu">
               <?php wp_nav_menu(array(
                 'theme_location' => 'menu_main', 'menu_class' => 'mob-menu__list',
-                'container_class' => 'mob-menu__list', 'container' => false
+                'container_class' => 'mob-menu__list', 'container' => false, 'walker' => new Modified_Desktop_Nav_menu(),
               )); ?>
                 <form
                   class="search-form"
