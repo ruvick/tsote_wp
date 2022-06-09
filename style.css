@@ -2629,11 +2629,21 @@ filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><fi
   margin-bottom: 35px;
 }
 
+.content h1 {
+  margin-bottom: 35px;
+}
+
+.content p {
+  margin-bottom: 20px;
+}
+
 .content ul {
+  padding-left: 35px;
   margin-bottom: 35px;
 }
 
 .content ul li {
+  list-style-type: disc;
   margin-bottom: 15px;
 }
 
