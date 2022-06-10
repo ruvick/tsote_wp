@@ -31,20 +31,21 @@ get_header(); ?>
 			<div class="container">
 
         <div class="file-block">
-					<a href="#" class="file-block__item">
-						<div class="file-block__item-icon"></div>
-						<div class="file-block__item-text">Название документа</div>
-					</a>
-
-					<a href="#" class="file-block__item">
-						<div class="file-block__item-icon"></div>
-						<div class="file-block__item-text">Название документа</div>
-					</a>
-
-					<a href="#" class="file-block__item">
-						<div class="file-block__item-icon"></div>
-						<div class="file-block__item-text">Название документа</div>
-					</a>
+					<? 
+						$infoMetod = carbon_get_theme_option('info_metod_complex');
+							if ($infoMetod) {
+						$infoMetodIndex = 0;
+							foreach ($infoMetod as $item) {
+					?>
+						<a download href="<? echo wp_get_attachment_url('info_metod_complex_file'); ?>" class="file-block__item">
+							<div class="file-block__item-icon"></div>
+							<div class="file-block__item-text"><? echo $item['info_metod_complex_name']; ?></div>
+						</a>
+					<?
+						$infoMetodIndex++; 
+							}
+						}
+					?>
 				</div>
 
       </div>

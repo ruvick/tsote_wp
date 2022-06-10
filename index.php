@@ -129,20 +129,21 @@
 			<div class="inner-flex">
 
 				<div class="file-block licenses__file-block">
-					<a href="#" class="file-block__item">
-						<div class="file-block__item-icon"></div>
-						<div class="file-block__item-text">Название документа</div>
-					</a>
-
-					<a href="#" class="file-block__item">
-						<div class="file-block__item-icon"></div>
-						<div class="file-block__item-text">Название документа</div>
-					</a>
-
-					<a href="#" class="file-block__item">
-						<div class="file-block__item-icon"></div>
-						<div class="file-block__item-text">Название документа</div>
-					</a>
+					<? 
+						$lic = carbon_get_theme_option('licenses_complex');
+							if ($lic) {
+						$licIndex = 0;
+							foreach ($lic as $item) {
+					?>
+						<a download href="<? echo wp_get_attachment_url('licenses_complex_file'); ?>" class="file-block__item">
+							<div class="file-block__item-icon"></div>
+							<div class="file-block__item-text"><? echo $item['licenses_complex_name']; ?></div>
+						</a>
+					<?
+						$licIndex++; 
+							}
+						}
+					?>
 				</div>
 
 				<div class="licenses-img">

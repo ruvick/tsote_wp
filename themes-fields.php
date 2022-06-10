@@ -29,11 +29,27 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
       ))
   ))
   ->add_tab('Аккредитации и лицензии', array(
-    Field::make('complex', 'licenses_complex', 'Слайдер Аккредитации и лицензии')
-      ->add_fields(array(
-        Field::make('image', 'licenses_img', 'Картинка слайдера')
-          ->set_width(100),
-      ))
+    Field::make('complex', 'licenses_complex', 'Файлы, Аккредитации и лицензии ')
+    ->add_fields(array(
+      Field::make('file', 'licenses_complex_file', 'Файл')
+      ->set_width(50),
+      Field::make('text', 'licenses_complex_name', 'Название документа')
+      ->set_width(50),
+    ))
+    // Field::make('complex', 'licenses_complex', 'Слайдер Аккредитации и лицензии')
+    //   ->add_fields(array(
+    //     Field::make('image', 'licenses_img', 'Картинка слайдера')
+    //       ->set_width(100),
+    //   ))
+  ))
+  ->add_tab('Информационно-методические материалы', array(
+    Field::make('complex', 'info_metod_complex', 'Файлы, Информационно-методические материалы')
+    ->add_fields(array(
+      Field::make('file', 'info_metod_complex_file', 'Файл')
+      ->set_width(50),
+      Field::make('text', 'info_metod_complex_name', 'Название документа')
+      ->set_width(50),
+    ))
   ))
   ->add_tab('Благодарственные письма', array(
     Field::make('complex', 'thanksgiving_complex', 'Благодарственные письма')
