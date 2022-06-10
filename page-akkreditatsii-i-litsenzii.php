@@ -30,24 +30,6 @@ get_header(); ?>
 		<section class="section"> 
 			<div class="container">
 
-        <div class="file-scan-block akkreditatsii-i-litsenzii-file-scan-block">
-          <div class="file-scan-block__column">
-            <div class="file-scan-block__img">
-              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
-            </div>
-          </div>
-          <div class="file-scan-block__column">
-            <div class="file-scan-block__img">
-              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
-            </div>
-          </div>
-          <div class="file-scan-block__column">
-            <div class="file-scan-block__img">
-              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
-            </div>
-          </div>
-        </div>
-
         <div class="file-block">
 					<a href="#" class="file-block__item">
 						<div class="file-block__item-icon"></div>
@@ -64,6 +46,24 @@ get_header(); ?>
 						<div class="file-block__item-text">Название документа</div>
 					</a>
 				</div>
+
+				<div class="file-scan-block akkreditatsii-i-litsenzii-file-scan-block">
+          <div class="file-scan-block__column">
+            <div class="file-scan-block__img">
+              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
+            </div>
+          </div>
+          <div class="file-scan-block__column">
+            <div class="file-scan-block__img">
+              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
+            </div>
+          </div>
+          <div class="file-scan-block__column">
+            <div class="file-scan-block__img">
+              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
+            </div>
+          </div>
+        </div>
 
       </div>
 		</section>
