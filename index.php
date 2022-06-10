@@ -125,7 +125,33 @@
 	<section id="licenses" class="licenses clients">
 		<div class="container">
 			<h2>Аккредитации и лицензии</h2>
-			<div class="licenses__slider slider-typical">
+
+			<div class="inner-flex">
+
+				<div class="file-block licenses__file-block">
+					<a href="#" class="file-block__item">
+						<div class="file-block__item-icon"></div>
+						<div class="file-block__item-text">Название документа</div>
+					</a>
+
+					<a href="#" class="file-block__item">
+						<div class="file-block__item-icon"></div>
+						<div class="file-block__item-text">Название документа</div>
+					</a>
+
+					<a href="#" class="file-block__item">
+						<div class="file-block__item-icon"></div>
+						<div class="file-block__item-text">Название документа</div>
+					</a>
+				</div>
+
+				<div class="licenses-img">
+					<img src="<?php echo get_template_directory_uri();?>/img/licenses-01.png" alt="">
+				</div>
+
+			</div>
+
+			<!-- <div class="licenses__slider slider-typical">
 				<? 
 					$licenses = carbon_get_theme_option('licenses_complex'); 
 						if ($licenses) {
@@ -140,7 +166,8 @@
 						}
 					}
 				?>
-			</div>
+			</div> -->
+
 		</div>
 	</section>
 
@@ -201,7 +228,7 @@
 		</div>
 	</section>
 
-	<section id="thanksgiving" class="thanksgiving clients">
+	<!-- <section id="thanksgiving" class="thanksgiving clients">
 		<div class="container">
 			<h2>Благодарственные письма</h2>
 			<div class="thanksgiving__slider slider-typical">
@@ -221,7 +248,8 @@
 				?>
 			</div>
 		</div>
-	</section>
+	</section> -->
+
 </main>
 
 <?php get_footer(); ?>
