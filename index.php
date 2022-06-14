@@ -130,7 +130,7 @@
 
 				<div class="file-block licenses__file-block">
 					<? 
-						$lic = carbon_get_theme_option('licenses_complex');
+						$lic = carbon_get_theme_option('licenses_complex'); 
 							if ($lic) {
 						$licIndex = 0;
 							foreach ($lic as $item) {
@@ -146,8 +146,10 @@
 					?>
 				</div>
 
-				<div class="licenses-img">
-					<img src="<?php echo get_template_directory_uri();?>/img/licenses-01.png" alt="">
+				<div class="licenses-img wp-block-gallery">
+					<a href="<?php echo get_template_directory_uri();?>/img/licenses-01.png">
+						<img src="<?php echo get_template_directory_uri();?>/img/licenses-01.png" alt="">
+					</a>
 				</div>
 
 			</div>
