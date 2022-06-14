@@ -1,7 +1,7 @@
 <?php
 require_once 'htmlsitemap.php';
 
-require get_template_directory() . '/functions/ajax-search.php'; # AJAX search
+require get_template_directory() . '/functions/ajax-search.php'; # AJAX search 
 
 function adjust_single_breadcrumb($link_output) {
 	if(strpos( $link_output, 'breadcrumb_last' ) !== false ) {
@@ -105,7 +105,8 @@ function my_assets()
 	wp_enqueue_script('amodal', get_template_directory_uri() . '/js/jquery.arcticmodal-0.3.min.js', array(), $scrypt_version, true); //Модальные окна
 	//wp_enqueue_script('mask', get_template_directory_uri() . '/js/jquery.inputmask.bundle.js', array(), $scrypt_version, true); //маска для инпутов
 	wp_enqueue_script('mask', get_template_directory_uri() . '/js/inputmask-5.0.8.min.js', array(), $scrypt_version, true); //маска для инпутов
-	wp_enqueue_script('lightbox', get_template_directory_uri() . '/js/lightbox.min.js', array(), $scrypt_version, true); //Лайтбокс
+	wp_enqueue_script('lightbox', get_template_directory_uri() . '/js/lightbox.min.js', array(), $scrypt_version, true); //Лайтбокс 
+	wp_enqueue_script('fslightbox', get_template_directory_uri() . '/js/fslightbox.js', array(), $scrypt_version, true); //Лайтбокс JS
 	wp_enqueue_script('slick', get_template_directory_uri() . '/js/slick.min.js', array(), $scrypt_version, true); //Слайдер
 	wp_enqueue_script('fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array(), $scrypt_version, true); //fancybox
 
