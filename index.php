@@ -147,8 +147,8 @@
 				</div>
 
 				<div class="licenses-img wp-block-gallery">
-					<a href="<?php echo get_template_directory_uri();?>/img/licenses-01.png">
-						<img src="<?php echo get_template_directory_uri();?>/img/licenses-01.png" alt="">
+					<a href="<?php echo wp_get_attachment_image_src(carbon_get_theme_option("license_picture"), 'full')[0];?>">
+						<img src="<?php echo wp_get_attachment_image_src(carbon_get_theme_option("license_picture"), 'full')[0];?>" alt="">
 					</a>
 				</div>
 
