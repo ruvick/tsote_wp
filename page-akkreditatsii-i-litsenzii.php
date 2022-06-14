@@ -50,18 +50,10 @@ get_header(); ?>
 
 				<div class="file-scan-block akkreditatsii-i-litsenzii-file-scan-block">
           <div class="file-scan-block__column">
-            <div class="file-scan-block__img">
-              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
-            </div>
-          </div>
-          <div class="file-scan-block__column">
-            <div class="file-scan-block__img">
-              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
-            </div>
-          </div>
-          <div class="file-scan-block__column">
-            <div class="file-scan-block__img">
-              <img src="<?php echo get_template_directory_uri();?>/img/licenses.jpg" alt="">
+            <div class="file-scan-block__img wp-block-gallery">
+							<a href="<?php echo wp_get_attachment_image_src(carbon_get_theme_option("license_picture"), 'full')[0];?>">
+								<img src="<?php echo wp_get_attachment_image_src(carbon_get_theme_option("license_picture"), 'full')[0];?>" alt="">
+							</a>
             </div>
           </div>
         </div>

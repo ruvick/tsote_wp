@@ -2785,7 +2785,7 @@ ul.htmlsitemap-list li {
 
 .file-scan-block__img {
   flex: 0 1 240px;
-  height: 338px;
+  height: auto;
   overflow: hidden;
 }
 
@@ -2974,6 +2974,10 @@ ul.htmlsitemap-list li {
     bottom: 5%;
     right: 15%;
   }
+
+  .header__contact .search-form {
+    display: none;
+  }
 }
 
 @media (max-width: 812px) {
@@ -3061,6 +3065,20 @@ ul.htmlsitemap-list li {
 
   .slider-typical__slide {
     height: 230px;
+  }
+
+  .inner-flex {
+    flex-wrap: wrap;
+  }
+
+  .licenses__file-block {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .licenses-img {
+    flex: 0 1 100%;
+    height: auto;
   }
 }
 
@@ -3302,6 +3320,21 @@ ul.htmlsitemap-list li {
   .category {
     padding: 15px 0;
   }
+
+  .file-block__item {
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+
+  .file-block__item-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .file-block__item-text {
+    flex: 1 1 100%;
+    line-height: 1.2;
+  }
 }
 
 @media (max-width: 460px) {
@@ -3355,6 +3388,20 @@ ul.htmlsitemap-list li {
 
   .slider-typical__slide {
     height: 250px;
+  }
+
+  .file-block__item-icon {
+    flex: 0 0 35px;
+    height: 35px;
+    margin-right: 10px;
+  }
+
+  .file-block__item-text {
+    font-size: 16px;
+  }
+
+  .file-block__item {
+    margin-bottom: 15px;
   }
 }
 
