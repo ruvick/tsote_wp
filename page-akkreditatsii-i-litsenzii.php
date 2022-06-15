@@ -37,10 +37,14 @@ get_header(); ?>
 						$licIndex = 0;
 							foreach ($lic as $item) {
 					?>
-						<a download href="<? echo $item['licenses_complex_file']; ?>" class="file-block__item">
-							<div class="file-block__item-icon"></div>
-							<div class="file-block__item-text"><? echo $item['licenses_complex_name']; ?></div>
-						</a>
+						<div class="file-block__item">
+							<?php
+								printf('<a href="%s" download class="file-block__item-icon"></a>', $item['licenses_complex_file']);
+							?>
+							<?php
+								printf('<a href="%s" download><div class="file-block__item-text">' . $item['licenses_complex_name'] . '</div></a>', $item['licenses_complex_file']);
+							?>
+						</div>
 					<?
 							$licIndex++; 
 							}

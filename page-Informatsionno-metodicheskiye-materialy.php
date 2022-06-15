@@ -37,10 +37,14 @@ get_header(); ?>
 						$infoMetodIndex = 0;
 							foreach ($infoMetod as $item) {
 					?>
-						<a download href="<? echo wp_get_attachment_url('info_metod_complex_file'); ?>" class="file-block__item">
-							<div class="file-block__item-icon"></div>
-							<div class="file-block__item-text"><? echo $item['info_metod_complex_name']; ?></div>
-						</a>
+						<div class="file-block__item">
+							<?php
+								printf('<a href="%s" download class="file-block__item-icon"></a>', $item['info_metod_complex_file']);
+							?>
+							<?php
+								printf('<a href="%s" download><div class="file-block__item-text">' . $item['info_metod_complex_name'] . '</div></a>', $item['info_metod_complex_file']);
+							?>
+						</div>
 					<?
 						$infoMetodIndex++; 
 							}

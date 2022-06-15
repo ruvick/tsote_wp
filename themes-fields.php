@@ -33,8 +33,8 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
     ->set_width(100),
     Field::make('complex', 'licenses_complex', 'Файлы, Аккредитации и лицензии ')
     ->add_fields(array(
-      Field::make('file', 'licenses_complex_file', 'Файл')
-      ->set_width(50),
+      Field::make('file', 'licenses_complex_file', 'Файл') 
+      ->set_value_type('url'),
       Field::make('text', 'licenses_complex_name', 'Название документа')
       ->set_width(50),
     )),
@@ -48,7 +48,7 @@ Container::make('theme_options', __('Настройки темы', 'crb'))
     Field::make('complex', 'info_metod_complex', 'Файлы, Информационно-методические материалы')
     ->add_fields(array(
       Field::make('file', 'info_metod_complex_file', 'Файл')
-      ->set_width(50),
+      ->set_value_type('url'),
       Field::make('text', 'info_metod_complex_name', 'Название документа')
       ->set_width(50),
     ))
