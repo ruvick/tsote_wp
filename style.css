@@ -2980,7 +2980,7 @@ ul.htmlsitemap-list li {
   }
 }
 
-@media (max-width: 812px) {
+@media (max-width: 812px) { 
   .header__email {
     margin-right: 15px;
   }

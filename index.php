@@ -235,19 +235,6 @@
 		</div>
 	</section>
 
-	<section class="section">
-		<div class="container">
-			<div class="see-also content">
-				<h2 class="see-also__title">Смотрите так же</h2>
-				<ul class="see-also__list">
-					<li class="see-also__list-item"><a href="<?php echo get_permalink(286);?>" class="see-also__list-item-link">О лаборатории</a></li>
-					<li class="see-also__list-item"><a href="<?php echo get_permalink(282);?>" class="see-also__list-item-link">Услуги</a></li>
-					<li class="see-also__list-item"><a href="<?php echo get_permalink(288);?>" class="see-also__list-item-link">Аккредитации и лицензии</a></li>
-				</ul>
-			</div>
-		</div>
-	</section>
-
 	<!-- <section id="thanksgiving" class="thanksgiving clients">
 		<div class="container">
 			<h2>Благодарственные письма</h2>
