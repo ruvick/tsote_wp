@@ -9,13 +9,15 @@
           
       <div class="footer__contact d-flex">
         <? $tel = carbon_get_theme_option("as_phones_1");
-        if (!empty($tel)) { ?><a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="header__phone"><? echo $tel; ?></a><? } ?>
+          if (!empty($tel)) { ?><a href="tel:<? echo preg_replace('/[^0-9]/', '', $tel); ?>" class="header__phone"><? echo $tel; ?></a><? } ?>
         <? $mail = carbon_get_theme_option("as_email");
-        if (!empty($mail)) { ?><a href="mailto:<? echo $mail; ?>" class="header__email"><? echo $mail; ?></a><? } ?>
+          if (!empty($mail)) { ?><a href="mailto:<? echo $mail; ?>" class="header__email"><? echo $mail; ?></a><? } ?>
 
         <div class="footer_contact_info">
-            <div class="footer-contact-info_item">Организация: ООО «ЦЕНТР ОХРАНЫ ТРУДА»</div>
-            <div class="footer-contact-info_item">Адрес: г.Курск, 1-я Пушкарная улица, 28</div>
+				  <? $org = carbon_get_theme_option("as_company");
+				    if (!empty($org)) { ?><div class="footer-contact-info_item">Организация: <? echo $org; ?></div><? } ?>
+          <? $adr = carbon_get_theme_option("as_address");
+				    if (!empty($adr)) { ?><div class="footer-contact-info_item">Адрес: <? echo $adr; ?></div><? } ?>
         </div>
 
         <a href="#callback" class="header__popup-link btn _popup-link">ЗАКАЗАТЬ ЗВОНОК</a>
